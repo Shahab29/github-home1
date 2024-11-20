@@ -11,13 +11,13 @@
 
     <div class="container">
      
-            <button class="again" type="button">Again!</button>
+            <button id="again" type="button">Again!</button>
        
         <div class="child2"><p id="p1">Between 1 to 20</p></div>
        
     </div>
 
-    <div class="center"><p id="centerbox">?</p></div>
+    <div id="center"><p id="guess">?</p></div>
 
       <div class="container1">
         <div class="child3">
@@ -25,6 +25,8 @@
             </div>
             <div class="child4">
                 <p id="message">Current score</p>
+                <p id="Lable-score">score:<span id="score">20</span>
+                  
             </div>
        
     </div>
@@ -33,19 +35,35 @@
         <div class="child5">
           <button id="check-button" type="button">Check!</button>
         </div>
-        <div class="child6"><p id="score1">score</p></div>
-       
+        <div class="child6">
+        <p id="heigh-score">score:<span id="heigh-score">0</span>
+        </div>
+
+
     </div>
    
     <script>
 
-      document.getElementById("centerbox").innerHTML = 13;
-      document.getElementById("message").innerHTML = 'Current number';
-      document.getElementById("score1").innerHTML = 'score';
-      document.getElementById("quantity").Value = '';
+      // document.getElementById("centerbox").innerHTML = '13';
+      // document.getElementById("message").innerHTML = 'Current number';
+
 
       // console.log(document.getElementById("quantity").value);
       // document.getElementById("quantity").value = '';
+
+    
+      // const number1 = math.trunc(math.random()* 20) + 1;
+
+
+
+      
+       document.getElementById("message").innerHTML = 'start gussing...';
+  document.getElementById("score").innerHTML = 20 ;
+  document.getElementById("guess").innerHTML = '';
+  document.getElementById("quantity").value = '';
+let score = 20;
+ const guess = Math.trunc(Math.random() * 20) + 1
+ document.getElementById("guess").innerHTML = guess;
 
       const element = document.getElementById("check-button");
 element.addEventListener("click", function() {
@@ -53,12 +71,24 @@ element.addEventListener("click", function() {
 const quantity = Number(document.getElementById("quantity").value);
 console.log(quantity ,typeof quantity);
 
-if (!quantity){
-  document.getElementById("message").innerHTML = 'no number';
-}
+if(!quantity){
+  document.getElementById("message").innerHTML = 'No number';
+}else if (quantity === guess){
+  document.getElementById("message").innerHTML = 'Correct number';
+}else if (quantity > guess){
+  document.getElementById("message").innerHTML = 'TO high';score--;
+  document.getElementById("score").innerHTML = score;
 
- 
-});
+}else if (quantity < guess){
+    document.getElementById("message").innerHTML = 'TO low';score--;
+    document.getElementById("score").innerHTML = score;
+
+
+
+}});
+
+
+
 
       </script>
 
