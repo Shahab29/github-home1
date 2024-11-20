@@ -13,27 +13,54 @@
      
             <button class="again" type="button">Again!</button>
        
-        <div class="child2"><p>Between 1 to 20</p></div>
+        <div class="child2"><p id="p1">Between 1 to 20</p></div>
        
     </div>
 
-    <div class="center">?</div>
+    <div class="center"><p id="centerbox">?</p></div>
 
       <div class="container1">
-        <div class="child3"><input type="number" id="quantity" name="quantity" min="1" max="20">
+        <div class="child3">
+          <input type="number" id="quantity" />
             </div>
             <div class="child4">
-                <p class="message">Current score</p>
+                <p id="message">Current score</p>
             </div>
        
     </div>
 
     <div class="container2">
-        <div class="child5"><button class="check-button" type="button">Check!</button></div>
-        <div class="child6"><p>Highscore</p></div>
+        <div class="child5">
+          <button id="check-button" type="button">Check!</button>
+        </div>
+        <div class="child6"><p id="score1">score</p></div>
        
     </div>
    
-    
+    <script>
+
+      document.getElementById("centerbox").innerHTML = 13;
+      document.getElementById("message").innerHTML = 'Current number';
+      document.getElementById("score1").innerHTML = 'score';
+      document.getElementById("quantity").Value = '';
+
+      // console.log(document.getElementById("quantity").value);
+      // document.getElementById("quantity").value = '';
+
+      const element = document.getElementById("check-button");
+element.addEventListener("click", function() {
+
+const quantity = Number(document.getElementById("quantity").value);
+console.log(quantity ,typeof quantity);
+
+if (!quantity){
+  document.getElementById("message").innerHTML = 'no number';
+}
+
+ 
+});
+
+      </script>
+
   </body>
 </html>
